@@ -1,10 +1,21 @@
 const { removeBackgroundFromImageFile } = require("remove.bg");
+const fs = require("fs");
+const path = require("path");
 
 // Local file path
-const localFile = "./photo.jpg";
+const localD = "C:\\output";
+const localFile = path.join(localD, "current.jpg");
 
-// Output file path
-const outputFile = "C:\\output";
+
+
+// Output directory and filename
+const outputDir = "C:\\output";
+const outputFile = path.join(outputDir, "photo-no-bg.png");
+
+// Ensure the output directory exists
+if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+}
 
 // Function to remove background from image
 const removeBgFromImage = async () => {
@@ -12,12 +23,10 @@ const removeBgFromImage = async () => {
     const result = await removeBackgroundFromImageFile({
       path: localFile,
       apiKey: "QSc3XacaG3idUQMeGvFdGwUN",
-      size: "regular",   // Image size (e.g., regular, preview)
       type: "auto",      // Background removal type (auto, person, etc.)
-      scale: "50%",  
-      bg_color:"#001eff",
-      // Scaling factor
-      outputFile        // Output path where the image will be saved
+
+      bg_color: "#001eff",
+      outputFile        // Corrected: Now a full file path
     });
 
     console.log(`File saved to ${outputFile}`);
