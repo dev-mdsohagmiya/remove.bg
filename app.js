@@ -4,7 +4,7 @@ const { removeBackgroundFromImageFile } = require("remove.bg");
 const localFile = "./photo.jpg";
 
 // Output file path
-const outputFile = "./output/img.jpg";
+const outputFile = "C:\\output";
 
 // Function to remove background from image
 const removeBgFromImage = async () => {
