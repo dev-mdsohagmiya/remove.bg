@@ -11,7 +11,7 @@ const path = require("path");
 
     // Upload Image
     const fileInput = await page.$("input[type='file']");
-    await fileInput.uploadFile("./photo.jpg"); // Change "image.jpg" to your file path
+    await fileInput.uploadFile("image.jpg"); // Change "image.jpg" to your file path
 
     console.log("Image uploaded, waiting for processing...");
 
